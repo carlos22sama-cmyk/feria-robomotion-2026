@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación & Código - Barco Robot</title>
+  <style>
+    :root { --primary-blue: #0277BD; --secondary-blue: #29B6F6; --dark-grey: #37474F; --light-bg: #E1F5FE; --white: #FFFFFF; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-grey); }
+    header { background-color: var(--primary-blue); color: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    pre { background: var(--dark-grey); color: #00E676; padding: 1rem; border-radius: 5px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; }
+    table { width: 100%; border-collapse: collapse; background: var(--white); margin: 1rem 0; }
+    th, td { border: 1px solid #ccc; padding: 0.8rem; text-align: left; }
+    th { background-color: var(--primary-blue); color: var(--white); }
+    .interactive-panel { background: var(--white); border: 2px solid var(--primary-blue); padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0; }
+    .status-box { font-size: 1.2rem; padding: 1rem; margin-top: 1rem; font-weight: bold; border-radius: 5px; }
+    .status-off { background-color: #FFCDD2; color: #C62828; }
+    .status-nav { background-color: #C8E6C9; color: #2E7D32; }
+    footer { background-color: var(--dark-grey); color: var(--white); text-align: center; padding: 1.5rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🚢 AquaBot Dynamics</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="filosofia.html">Filosofía & Ciencia</a>
+      <a href="soluciones.html">Simulación Python</a>
+      <a href="contacto.html">Contacto & Jurado</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Especificaciones Técnicas del Prototipo</h2>
+
+    <h3>Tabla de Componentes del Prototipo Físico</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Cantidad / Modelo</th>
+          <th>Función Principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Microcontrolador</td><td>1x Arduino Uno R3</td><td>Procesador de instrucciones y control de motores.</td></tr>
+        <tr><td>Controlador de Motor</td><td>1x Motor Shield L293D</td><td>Gestión del sentido y velocidad de propulsión.</td></tr>
+        <tr><td>Módulo Inalámbrico</td><td>1x Módulo Bluetooth HC-05</td><td>Recepción de órdenes de control vía teléfono.</td></tr>
+        <tr><td>Actuadores / Motores</td><td>2x Motores Reductores 50 RPM</td><td>Mover las hélices para el impulso del agua.</td></tr>
+        <tr><td>Fuente de Poder</td><td>2x Baterías de Litio 18650 (3.7V)</td><td>Suministro eléctrico para la electrónica y motores.</td></tr>
+        <tr><td>Chasis y Flotación</td><td>2x Botellas Plásticas y Cartón</td><td>Aplicación del Principio de Arquímedes.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Código de Control Simulado en Python (POO)</h3>
+    <pre>
+# Código Orientado a Objetos - AquaBot Dynamics
+class FlotadorArquimedes:
+    def __init__(self, botellas=2):
+        self.botellas = botellas
+        self.en_agua = False
+
+    def verificar_flotabilidad(self, esta_en_agua):
+        self.en_agua = esta_en_agua
+        return "Flotabilidad Positiva (Arquímedes Activo)" if self.en_agua else "En Superficie Seca"
+
+class MotorPropulsion:
+    def __init__(self, lado):
+        self.lado = lado
+        self.velocidad = 0
+
+    def encender(self, potencia=100):
+        self.velocidad = potencia
+        print(f"Motor {self.lado}: Girando a {self.velocidad}% potencia.")
+
+    def detener(self):
+        self.velocidad = 0
+        print(f"Motor {self.lado}: Detenido.")
+
+class BarcoRobot:
+    def __init__(self):
+        self.flotador = FlotadorArquimedes()
+        self.motor_izq = MotorPropulsion("Izquierdo")
+        self.motor_der = MotorPropulsion("Derecho")
+        self.bluetooth_conectado = False
+
+    def conectar_bluetooth(self):
+        self.bluetooth_conectado = True
+        print("[HC-05] Conexión Bluetooth establecida con éxito.")
+
+    def navegar_adelante(self):
+        if self.bluetooth_conectado:
+            self.motor_izq.encender(100)
+            self.motor_der.encender(100)
+
+    def detener_navegacion(self):
+        self.motor_izq.detener()
+        self.motor_der.detener()
+    </pre>
+
+    <h3>Panel de Control Interactivo del Barco Robot</h3>
+    <div class="interactive-panel">
+      <p>Simula el estado del barco robot al recibir órdenes por Bluetooth:</p>
+      <button onclick="controlarBarco('detener')" style="padding: 10px 20px;">🛑 Detener Barco</button>
+      <button onclick="controlarBarco('avanzar')" style="padding: 10px 20px; background-color: var(--primary-blue); color: white;">🚢 Avanzar (Ambos Motores)</button>
+      <button onclick="controlarBarco('Giro')" style="padding: 10px 20px; background-color: var(--secondary-blue);">↩️ Girar (Diferencial)</button>
+
+      <div id="statusOutput" class="status-box status-off">
+        ESTADO: Barco Detenido | Bluetooth Esperando Orden
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function controlarBarco(accion) {
+      const output = document.getElementById('statusOutput');
+      if (accion === 'avanzar') {
+        output.className = "status-box status-nav";
+        output.innerHTML = "🌊 NAVEGANDO: Motores Izq y Der al 100% | Avanzando según la 3ra Ley de Newton";
+      } else if (accion === 'Giro') {
+        output.className = "status-box status-nav";
+        output.innerHTML = "🔄 GIRANDO: Motor Izquierdo al 100% - Motor Derecho Detenido (Dirección Diferencial)";
+      } else {
+        output.className = "status-box status-off";
+        output.innerHTML = "🛑 BARCO DETENIDO: Motores Apagados | Flotando en posición estática";
+      }
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2026 AquaBot Dynamics - Proyecto de Robótica Grupo 9no Grado</p>
+  </footer>
+</body>
+</html>

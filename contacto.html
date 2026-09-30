@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto & Jurado - Barco Robot</title>
+  <style>
+    :root { --primary-blue: #0277BD; --secondary-blue: #29B6F6; --dark-grey: #37474F; --light-bg: #E1F5FE; --white: #FFFFFF; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-grey); }
+    header { background-color: var(--primary-blue); color: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; }
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    form { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 0.8rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { margin-top: 1.5rem; background-color: var(--primary-blue); color: var(--white); padding: 0.8rem 1.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+    button:hover { background-color: #01579B; }
+    .faq-item { background: var(--white); padding: 1rem; border-left: 4px solid var(--secondary-blue); margin-bottom: 1rem; }
+    footer { background-color: var(--dark-grey); color: var(--white); text-align: center; padding: 1.5rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🚢 AquaBot Dynamics</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="filosofia.html">Filosofía & Ciencia</a>
+      <a href="soluciones.html">Simulación Python</a>
+      <a href="contacto.html">Contacto & Jurado</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Atención a Calificadores y Consultas del Jurado</h2>
+
+    <form onsubmit="event.preventDefault(); alert('¡Gracias! El grupo de 9no Grado ha recibido su retroalimentación.');">
+      <h3>Formulario de Evaluación de la Feria Científica</h3>
+      <label for="evaluador">Nombre del Evaluador / Jurado:</label>
+      <input type="text" id="evaluador" required placeholder="Ej. Prof. Evaluador de Física">
+
+      <label for="correo">Correo Electrónico:</label>
+      <input type="email" id="correo" required placeholder="evaluador@colegio.edu.gt">
+
+      <label for="criterio">Criterio a Calificar:</label>
+      <select id="criterio">
+        <option>Aplicación de Principios Físicos (Arquímedes / Newton)</option>
+        <option>Uso de Materiales Reciclados y Costos</option>
+        <option>Programación y Sistema Electrónico Arduino/Python</option>
+        <option>Presentación General del Stand</option>
+      </select>
+
+      <label for="retroalimentacion">Comentarios y Recomendaciones:</label>
+      <textarea id="retroalimentacion" rows="4" required></textarea>
+
+      <button type="submit">Enviar Punteo y Comentarios</button>
+    </form>
+
+    <h3>Preguntas Frecuentes (FAQ)</h3>
+    <div class="faq-item">
+      <h4>¿Cómo se evita que el agua dañe la tarjeta Arduino y las baterías?</h4>
+      <p>Se implementó un sellado con aislamiento dieléctrico elevado sobre la plataforma de cartón protegida para aislar la electrónica del agua con sales[cite: 7, 8].</p>
+    </div>
+    <div class="faq-item">
+      <h4>¿Cuál es la función del Motor Shield L293D?</h4>
+      <p>Permite controlar la dirección de rotación de los 2 motores de 50 RPM mediante un puente H[cite: 8], facilitando el giro diferencial del barco sobre la superficie acuática[cite: 9].</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AquaBot Dynamics - Colegio Las Américas</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaBot Dynamics - Barco Robot Reciclado</title>
+  <style>
+    :root {
+      --primary-blue: #0277BD;
+      --secondary-blue: #29B6F6;
+      --dark-grey: #37474F;
+      --light-bg: #E1F5FE;
+      --white: #FFFFFF;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-grey); }
+    header { background-color: var(--primary-blue); color: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--secondary-blue); }
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--white); }
+    nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    nav a:hover { color: var(--light-bg); text-decoration: underline; }
+    .hero { background: linear-gradient(135deg, var(--primary-blue), #01579B); color: var(--white); padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 2.8rem; color: var(--secondary-blue); margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem auto; }
+    .cta-btn { background-color: var(--secondary-blue); color: var(--dark-grey); padding: 0.8rem 1.8rem; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 1.1rem; }
+    .cta-btn:hover { background-color: #80DEEA; }
+    .features { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card { background: var(--white); padding: 1.5rem; border-radius: 8px; border-left: 5px solid var(--primary-blue); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    footer { background-color: var(--dark-grey); color: var(--white); text-align: center; padding: 1.5rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🚢 AquaBot Dynamics</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="filosofia.html">Filosofía & Ciencia</a>
+      <a href="soluciones.html">Simulación Python</a>
+      <a href="contacto.html">Contacto & Jurado</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Barco Robot Autónomo y Reciclado</h1>
+    <p>Proyecto de Feria Científica de 9no Grado - Colegio Las Américas. Uniendo la robótica, la física acuática y la sostenibilidad con materiales reciclados.</p>
+    <a href="soluciones.html" class="cta-btn">Explorar Código y Simulación en Vivo</a>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>🌊 Principio de Arquímedes</h3>
+      <p>Diseñado con flotadores de botellas plásticas reutilizadas que generan una fuerza de empuje positiva para navegar sin hundirse.</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ Propulsión Diferencial</h3>
+      <p>Control de dos motores reductores de 50 RPM alimentados por un Motor Shield L293D y microcontrolador Arduino Uno R3.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Control Inalámbrico Bluetooth</h3>
+      <p>Integración de módulo Bluetooth HC-05 para direccionar la navegación del prototipo desde un dispositivo remoto.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 AquaBot Dynamics - 9no Grado | Colegio Las Américas</p>
+  </footer>
+</body>
+</html>
